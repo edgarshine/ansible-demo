@@ -1,0 +1,11 @@
+---
+- hosts: sao_paulo
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: Config Interfaces
+    eos_config:
+      provider: '{{ conexao_eapi }}'
+      src: templates/interface_config.j2
+
