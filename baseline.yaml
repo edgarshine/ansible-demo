@@ -1,0 +1,10 @@
+---
+- hosts: sao_paulo
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: Config baseline 
+    eos_config:
+      provider: '{{ conexao_eapi }}'
+      src: templates/baseline_config.j2

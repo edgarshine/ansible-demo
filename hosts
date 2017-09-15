@@ -1,0 +1,13 @@
+#hosts
+[spines]
+spinea
+spineb
+[pod1]
+leaf1a
+leaf1b
+[pod2]
+leaf2 ansible_user=ansible 
+[sao_paulo:children]
+spines
+pod1
+pod2

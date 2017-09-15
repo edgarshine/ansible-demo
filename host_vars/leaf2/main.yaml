@@ -1,0 +1,17 @@
+---
+interfaces:
+   Ethernet1:
+      name: Ethernet1
+      type: Access
+      description: Acesso Engenharia
+      vlan: 10
+   Ethernet2:
+      name: Ethernet2
+      type: Trunk
+      description: Acesso Vendas
+      vlan: 20
+#   Ethernet3:
+#      name: Ethernet3
+#      description: Porta de uplink L3
+#      type: IP
+#      address: 192.168.0.1/24

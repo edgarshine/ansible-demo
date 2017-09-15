@@ -1,0 +1,12 @@
+interface {{ interfaces.Ethernet1.name }}
+   description {{ interfaces.Ethernet1.description }}
+   switchport
+   switchport mode access
+   switchport access vlan {{ interfaces.Ethernet1.vlan }}
+   no shutdown
+interface {{ interfaces.Ethernet2.name }}
+   description {{ interfaces.Ethernet2.description }}
+   switchport
+   switchport mode access
+   switchport access vlan {{ interfaces.Ethernet2.vlan }}
+   no shutdown

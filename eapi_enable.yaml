@@ -1,0 +1,12 @@
+---
+- hosts: sao_paulo
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: Enable eAPI
+    eos_eapi:
+      provider: '{{ conexao_cli }}'
+      state: started
+      socket: yes
+      http: yes

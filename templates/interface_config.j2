@@ -1,0 +1,22 @@
+{% for port in interfaces %}
+{% if interfaces[port].type == 'access' %}
+interface {{ port }}
+  description {{ interfaces[port].description }}
+  switchport
+  switchport mode access
+  switchport access vlan {{ interfaces[port].vlan }}
+{% endif %}
+{% if interfaces[port].type == 'trunk' %}
+interface {{ port }}
+  description {{ interfaces[port].description }}
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan add {{ interfaces[port].vlan }}
+{% endif %}
+{% if interfaces[port].type == 'ip' %}
+interface {{ port }}
+  description {{ interfaces[port].description }}
+  no switchport
+  ip address {{ interfaces[port].address }}
+{% endif %}
+{% endfor %}

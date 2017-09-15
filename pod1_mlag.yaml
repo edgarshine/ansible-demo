@@ -1,0 +1,14 @@
+---
+- hosts: pod1
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: Config MLAG
+    eos_config:
+      provider: '{{ conexao_eapi }}'
+      src: templates/mlag_config.j2
+  - name: Config MLAG Interfaces
+    eos_config:
+      provider: '{{ conexao_eapi }}'
+      src: templates/mlag_interfaces.j2

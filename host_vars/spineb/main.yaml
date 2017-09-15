@@ -1,0 +1,9 @@
+interfaces:
+  Ethernet1:
+    description: Uplink to leafa
+    type: ip
+    address: 10.20.0.0/31
+  Ethernet2:
+    description: Uplink to leafb
+    type: ip
+    address: 10.20.0.2/31

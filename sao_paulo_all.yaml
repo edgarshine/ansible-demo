@@ -1,0 +1,4 @@
+- include: eapi_enable.yaml
+- include: baseline.yaml
+- include: sao_paulo_intf.yaml
+- include: pod1_mlag.yaml

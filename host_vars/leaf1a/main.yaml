@@ -1,0 +1,10 @@
+mlag_side: a
+interfaces:
+  Ethernet2:
+    description: Uplink to spinea
+    type: ip
+    address: 10.10.0.1/31
+  Ethernet3:
+    description: Uplink to spineb
+    type: ip
+    address: 10.20.0.1/31

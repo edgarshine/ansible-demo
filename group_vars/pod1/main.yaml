@@ -1,0 +1,18 @@
+mlag_config:
+  vlan: 4094
+  leafa_addr: 10.0.0.1/30
+  leafb_addr: 10.0.0.2/30
+mlag_peer_link:
+  - Ethernet4
+mlag_interfaces:
+  channel1:
+    description: Conexao para host
+    mlagid: 1
+    type: po_trunk
+    vlan: 101
+  Ethernet1:
+    type: channel_group
+    channel_group: 1
+mlag_vlans:
+  Engenharia:
+    id: 101

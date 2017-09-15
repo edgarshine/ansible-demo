@@ -1,0 +1,27 @@
+no spanning-tree vlan {{ mlag_config.vlan }}
+vlan {{ mlag_config.vlan }}
+   trunk group mlagpeer
+interface Port-Channel2000
+   switchport mode trunk
+   switchport trunk group mlagpeer
+{% for mlag_port in mlag_peer_link %}
+interface {{ mlag_port }}
+   channel-group 2000 mode active
+{% endfor %}
+interface Vlan{{ mlag_config.vlan }}
+{% if mlag_side == 'a' %}
+   ip address {{ mlag_config.leafa_addr }}
+{% endif %}
+{% if mlag_side == 'b' %}
+   ip address {{ mlag_config.leafb_addr }}
+{% endif %}
+mlag configuration
+   domain-id mlag
+   local-interface Vlan{{ mlag_config.vlan }}
+{% if mlag_side == 'a' %}
+   peer-address 10.0.0.2
+{% endif %}
+{% if mlag_side == 'b' %}
+   peer-address 10.0.0.1
+{% endif %}
+   peer-link Port-Channel2000
