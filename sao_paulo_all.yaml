@@ -1,4 +1,4 @@
-- include: eapi_enable.yaml
-- include: baseline.yaml
-- include: sao_paulo_intf.yaml
-- include: pod1_mlag.yaml
+- import_playbook: eapi_enable.yaml
+- import_playbook: baseline.yaml
+- import_playbook: sao_paulo_intf.yaml
+- import_playbook: pod1_mlag.yaml

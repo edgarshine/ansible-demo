@@ -1,22 +1,22 @@
 {% for vlan in mlag_vlans %}
 vlan {{ mlag_vlans[vlan].id }}
-  name {{ vlan }}
+   name {{ vlan }}
 {% endfor %}
 {% for port in mlag_interfaces %}
 {% if mlag_interfaces[port].type == 'po_trunk' %}
 interface Port-{{ port }}
-  switchport mode trunk
-  switchport trunk allowed vlan add {{ mlag_interfaces[port].vlan }}
-  mlag {{ mlag_interfaces[port].mlagid }}
+   switchport mode trunk
+   switchport trunk allowed vlan add {{ mlag_interfaces[port].vlan }}
+   mlag {{ mlag_interfaces[port].mlagid }}
 {% endif %}
 {% if mlag_interfaces[port].type == 'po_access' %}
 interface Port-{{ port }}
-  switchport mode access
-  switchport access vlan {{ mlag_interfaces[port].vlan }}
-  mlag {{ mlag_interfaces[port].mlagid }}
+   switchport mode access
+   switchport access vlan {{ mlag_interfaces[port].vlan }}
+   mlag {{ mlag_interfaces[port].mlagid }}
 {% endif %}
 {% if mlag_interfaces[port].type == 'channel_group' %}
 interface {{ port }}
-  channel-group {{ mlag_interfaces[port].channel_group }} mode active
+   channel-group {{ mlag_interfaces[port].channel_group }} mode active
 {% endif %}
 {% endfor %}
